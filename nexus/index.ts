@@ -28,12 +28,6 @@ export const schema = makeSchema({
   },
 });
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
-
 const prisma = new PrismaClient();
 
 const apolloServer = new ApolloServer({
@@ -44,6 +38,6 @@ const apolloServer = new ApolloServer({
   },
 });
 
-export default apolloServer.listen().then(({ url }) => {
+apolloServer.listen().then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });

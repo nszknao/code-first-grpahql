@@ -5,11 +5,12 @@
   "author": "Naoto Nishizaka <nszk.nao@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --transpili-only --no-notify src/index.ts",
+    "dev": "ts-node-dev --no-notify index.ts",
     "build": "tsc"
   },
   "dependencies": {
     "@prisma/client": "^2.24.1",
+    "apollo-server": "^2.25.1",
     "class-validator": "^0.13.1",
     "graphql": "^15.5.0",
     "reflect-metadata": "^0.1.13",

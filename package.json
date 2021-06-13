@@ -5,6 +5,9 @@
   "repository": "git@github.com:nszknao/type-graphql-practice.git",
   "author": "Naoto Nishizaka <nszk.nao@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "nexus": "yarn --cwd ./nexus dev"
+  },
   "devDependencies": {
     "prisma": "^2.24.1"
   }
