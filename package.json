@@ -9,6 +9,6 @@
     "nexus": "yarn --cwd ./nexus dev"
   },
   "devDependencies": {
-    "prisma": "^2.24.1"
+    "prisma": "2.24.1"
   }
 }
