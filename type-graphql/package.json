@@ -1,0 +1,24 @@
+{
+  "name": "type-graphql-practice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:nszknao/type-graphql-practice.git",
+  "author": "Naoto Nishizaka <nszk.nao@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --transpili-only --no-notify src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@prisma/client": "^2.24.1",
+    "class-validator": "^0.13.1",
+    "graphql": "^15.5.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.1.6",
+    "typegraphql-prisma": "^0.14.3",
+    "typescript": "^4.3.2"
+  }
+}

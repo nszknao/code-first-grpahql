@@ -1,0 +1,11 @@
+{
+  "name": "type-graphql-practice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:nszknao/type-graphql-practice.git",
+  "author": "Naoto Nishizaka <nszk.nao@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "prisma": "^2.24.1"
+  }
+}
