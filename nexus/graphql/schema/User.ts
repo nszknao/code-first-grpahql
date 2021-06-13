@@ -1,4 +1,5 @@
-import { objectType } from "nexus";
+import { objectType, stringArg } from "nexus";
+import { connectionFromArray } from "graphql-relay";
 
 export const User = objectType({
   name: "User",
@@ -7,12 +8,19 @@ export const User = objectType({
     t.implements("Node");
     t.nonNull.string("name", { description: "ユーザー名" });
     t.nonNull.string("email");
-    t.nonNull.list.field("posts", {
+    t.nonNull.string("depricated", {
+      deprecation: "depricateテストのため",
+      resolve: (parent) => {
+        return parent.name;
+      },
+    });
+    t.connectionField("posts", {
       type: "Post",
-      resolve: async (parent, _args, ctx) => {
-        return ctx.prisma.post.findMany({
+      resolve: async (parent, args, ctx, _info) => {
+        const posts = await ctx.prisma.post.findMany({
           where: { authorId: parent.id },
         });
+        return connectionFromArray(posts, args);
       },
     });
   },

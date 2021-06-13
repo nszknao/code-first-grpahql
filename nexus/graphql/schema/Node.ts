@@ -11,5 +11,7 @@ export const Node = interfaceType({
       },
     });
   },
-  resolveType: () => null,
+  resolveType: () => {
+    return null;
+  },
 });
