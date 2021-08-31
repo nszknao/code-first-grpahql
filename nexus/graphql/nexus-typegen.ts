@@ -16,7 +16,7 @@ declare global {
      */
     connectionField<FieldName extends string>(
       fieldName: FieldName,
-      config: connectionPluginCore.ConnectionFieldConfig<TypeName, FieldName>
+      config: connectionPluginCore.ConnectionFieldConfig<TypeName, FieldName> & { totalCount: core.FieldResolver<core.FieldTypeName<TypeName, FieldName>, "totalCount"> }
     ): void
   }
 }
@@ -61,7 +61,7 @@ export interface NexusGenObjects {
 }
 
 export interface NexusGenInterfaces {
-  Node: NexusGenRootTypes['Post'] | NexusGenRootTypes['User'];
+  Node: core.Discriminate<'Post', 'required'> | core.Discriminate<'User', 'required'>;
 }
 
 export interface NexusGenUnions {
@@ -88,12 +88,14 @@ export interface NexusGenFieldTypes {
   PostConnection: { // field return type
     edges: Array<NexusGenRootTypes['PostEdge'] | null> | null; // [PostEdge]
     pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+    totalCount: number | null; // Int
   }
   PostEdge: { // field return type
     cursor: string; // String!
     node: NexusGenRootTypes['Post'] | null; // Post
   }
   Query: { // field return type
+    authors: Array<NexusGenRootTypes['User'] | null>; // [User]!
     drafts: Array<NexusGenRootTypes['Post'] | null>; // [Post]!
   }
   User: { // field return type
@@ -102,6 +104,7 @@ export interface NexusGenFieldTypes {
     id: string; // ID!
     name: string; // String!
     posts: NexusGenRootTypes['PostConnection'] | null; // PostConnection
+    posts2: NexusGenRootTypes['PostConnection'] | null; // PostConnection
   }
   Node: { // field return type
     id: string; // ID!
@@ -125,12 +128,14 @@ export interface NexusGenFieldTypeNames {
   PostConnection: { // field return type name
     edges: 'PostEdge'
     pageInfo: 'PageInfo'
+    totalCount: 'Int'
   }
   PostEdge: { // field return type name
     cursor: 'String'
     node: 'Post'
   }
   Query: { // field return type name
+    authors: 'User'
     drafts: 'Post'
   }
   User: { // field return type name
@@ -139,6 +144,7 @@ export interface NexusGenFieldTypeNames {
     id: 'ID'
     name: 'String'
     posts: 'PostConnection'
+    posts2: 'PostConnection'
   }
   Node: { // field return type name
     id: 'ID'
@@ -148,6 +154,12 @@ export interface NexusGenFieldTypeNames {
 export interface NexusGenArgTypes {
   User: {
     posts: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+    }
+    posts2: { // args
       after?: string | null; // String
       before?: string | null; // String
       first?: number | null; // Int
@@ -179,13 +191,13 @@ export type NexusGenUnionNames = never;
 
 export type NexusGenObjectsUsingAbstractStrategyIsTypeOf = never;
 
-export type NexusGenAbstractsUsingStrategyResolveType = "Node";
+export type NexusGenAbstractsUsingStrategyResolveType = never;
 
 export type NexusGenFeaturesConfig = {
   abstractTypeStrategies: {
+    __typename: true
     isTypeOf: false
-    resolveType: true
-    __typename: false
+    resolveType: false
   }
 }
 

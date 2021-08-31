@@ -23,7 +23,14 @@ export const schema = makeSchema({
     modules: [{ module: ".prisma/client", alias: "PrismaClient" }],
     debug: process.env.NODE_ENV !== "production",
   },
-  plugins: [connectionPlugin({})],
+  plugins: [
+    connectionPlugin({ extendConnection: { totalCount: { type: "Int" } } }),
+  ],
+  features: {
+    abstractTypeStrategies: {
+      __typename: true,
+    },
+  },
 });
 
 const prisma = new PrismaClient();
@@ -35,6 +42,6 @@ const apolloServer = new ApolloServer({
   },
 });
 
-apolloServer.listen().then(({ url }) => {
+apolloServer.listen(8888).then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
