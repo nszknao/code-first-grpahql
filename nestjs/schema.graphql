@@ -1,0 +1,38 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Author {
+  """メールアドレス"""
+  email: String!
+  id: Int!
+
+  """名前"""
+  name: String!
+  posts: [Post]!
+}
+
+type Mutation {
+  addPost(newPostData: NewPostInput!): Post!
+}
+
+input NewPostInput {
+  authorId: Int!
+
+  """本文"""
+  body: String!
+  title: String!
+}
+
+type Post {
+  """著者"""
+  author: Author!
+  id: Int!
+
+  """Book title"""
+  title: String! @deprecated(reason: "Not useful in v2 schema")
+}
+
+type Query {
+  author(id: Int!): Author
+}
