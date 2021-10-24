@@ -23,6 +23,7 @@
     "rxjs": "7.3.0"
   },
   "devDependencies": {
+    "@nestjs/cli": "^8.1.4",
     "prisma": "^2.30.2",
     "ts-node-dev": "1.1.6",
     "typegraphql-prisma": "0.15.0",
