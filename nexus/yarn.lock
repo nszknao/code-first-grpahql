@@ -825,10 +825,10 @@ graphql-middleware@6.0.10:
     "@graphql-tools/delegate" "^7.1.5"
     "@graphql-tools/schema" "^7.1.5"
 
-graphql-relay@0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/graphql-relay/-/graphql-relay-0.8.0.tgz#35f0090f0f056192767c1acdaa402daed19ede6d"
-  integrity sha512-NU7CkwNxPzkqpBgv76Cgycrc3wmWVA2K5Sxm9DHSSLLuQTpaSRAUsX1sf2gITf+XQpkccsv56/z0LojXTyQbUw==
+graphql-relay@0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/graphql-relay/-/graphql-relay-0.10.1.tgz#4729ec92b5cf73879cf76d817ddbee7808d1cec9"
+  integrity sha512-8AtwSe6B0/b4+YzynHr38PP7S+zX5Vs5LEo0BEzGCPq/THAiHa5H5ZLf3bRbKbok15ADxDQSsGJmlqXeJDDPIw==
 
 graphql-shield@7.5.0:
   version "7.5.0"
